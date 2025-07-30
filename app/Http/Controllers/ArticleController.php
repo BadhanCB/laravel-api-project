@@ -50,4 +50,30 @@ class ArticleController extends Controller {
       ], 500);
     }
   }
+
+  function updateArticle(Request $request, Article $article) {
+    $user = $request->user();
+
+    if ($user->id !== $article->user_id) {
+      return response()->json(['message' => 'You are not authorized to Update this article'], 404);
+    }
+
+    $article->title   = $request->title;
+    $article->content = $request->content;
+    $article->save();
+
+    return $article;
+  }
+
+  function deleteArticle(Request $request, Article $article) {
+    $user = $request->user();
+
+    if ($user->id !== $article->user_id) {
+      return response()->json(['message' => 'You are not authorized to Delete this article'], 404);
+    }
+
+    $article->delete();
+
+    return response()->json(['message' => 'Article deleted successfully'], 200);
+  }
 }

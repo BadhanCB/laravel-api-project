@@ -18,8 +18,8 @@ Route::get('/articles/{article}', [ArticleController::class, 'getArticle']);
 
 Route::middleware('auth:sanctum')->group(function () {
   Route::post('/articles', [ArticleController::class, 'createArticle']);
-  Route::put('/articles/{id}', [ArticleController::class, 'updateArticle']);
-  Route::delete('/articles/{id}', [ArticleController::class, 'deleteArticle']);
+  Route::put('/articles/{article}', [ArticleController::class, 'updateArticle']);
+  Route::delete('/articles/{article}', [ArticleController::class, 'deleteArticle']);
 
   Route::resource('post', PostController::class);
 });
