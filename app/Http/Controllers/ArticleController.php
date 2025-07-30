@@ -23,15 +23,15 @@ class ArticleController extends Controller {
   function createArticle(Request $request) {
     try {
       $newArticleData = $request->validate([
-        'user_id' => ['required'],
         'title'   => ['required'],
         'content' => ['required'],
       ]);
 
       $article          = new Article();
+      $user             = $request->user();
       $article->title   = $newArticleData['title'];
       $article->content = $newArticleData['content'];
-      $article->user_id = $newArticleData['user_id'];
+      $article->user_id = $user->id;
 
       $result = $article->save();
       if ($result) {
