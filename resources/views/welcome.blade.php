@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>API Project</title>
+</head>
+
+<body>
+    <h1 class="text-5xl">Laravel API Project</h1>
+</body>
+
+</html>
